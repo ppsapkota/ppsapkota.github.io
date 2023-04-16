@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Humanitarian Data Science</title>
-    <link>https://ppsapkota.github.io/post/</link>
-    <description>Recent content in Posts on Humanitarian Data Science</description>
+    <title>GIS on Humanitarian Data Science</title>
+    <link>https://ppsapkota.github.io/categories/gis/</link>
+    <description>Recent content in GIS on Humanitarian Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 02 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ppsapkota.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ppsapkota.github.io/categories/gis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Accessing Common Operational Data (COD) from ESRI REST API using R: examples for Administrative Boundary PCODE</title>
       <link>https://ppsapkota.github.io/post/2023_01_01_esri_rest_api/</link>
@@ -16,17 +16,6 @@
       <guid>https://ppsapkota.github.io/post/2023_01_01_esri_rest_api/</guid>
       <description>Common Operational Data Common Operational Datasets (CODs) are authoritative reference datasets needed to support operations and decision-making for all actors involved in a humanitarian response. CODs are &amp;lsquo;best available&amp;rsquo; datasets that help to ensure consistency and simplify the discovery and exchange of key data.
 To effectively respond to disasters and provide humanitarian aid, it is crucial to have accurate and up-to-date information. Standardized datasets like CODs play a critical role in providing consistent and reliable information about the demographics, geography, and infrastructure of a particular area.</description>
-    </item>
-    
-    <item>
-      <title>Accessing data from REST API using R: examples for KoBoToolbox and Country Based Pooled Fund (CBPF) data</title>
-      <link>https://ppsapkota.github.io/post/2018_12_08_kobo_restapi/</link>
-      <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ppsapkota.github.io/post/2018_12_08_kobo_restapi/</guid>
-      <description>R program has become a language of choice for data science work. It has rich feature library that can be readily used for variety of data management tasks. This article focuses on accessing data from the KoBoToolbox.
-KoBoToolbox KoBoToolbox provides a suite of tools for field data collection in the challenging environments. It is free and open source and works both on and offline.
-KoBoToolbox has a number of advanced features which are very useful for advanced use case scenario.</description>
     </item>
     
   </channel>

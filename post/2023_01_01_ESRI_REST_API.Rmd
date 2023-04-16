@@ -1,0 +1,204 @@
+---
+title: 'Accessing Common Operational Data (COD) from ESRI REST API using R: examples
+  for Administrative Boundary PCODE'
+author: "Punya Prasad Sapkota"
+date: "2023-04-02"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+tags:
+- R
+- PCODE
+- Common Operational Data (COD)
+- ESRI Rest API
+weight: 10
+categories:
+- Data
+- GIS
+---
+
+# Common Operational Data
+
+Common Operational Datasets (CODs) are authoritative reference datasets needed to support operations and decision-making for all actors involved in a humanitarian response. CODs are 'best available' datasets that help to ensure consistency and simplify the discovery and exchange of key data.
+
+To effectively respond to disasters and provide humanitarian aid, it is crucial to have accurate and up-to-date information. Standardized datasets like CODs play a critical role in providing consistent and reliable information about the demographics, geography, and infrastructure of a particular area. This information forms the foundation for effective planning, mapping, and analysis during disaster preparedness and response efforts. List of CODs are hosted in [Humanitarian Data Platform](https://data.humdata.org/dashboards/cod) and Map Services is hosted by [ITOS Map Services](https://gistmaps.itos.uga.edu/arcgis/rest/services).
+
+In addition to CODs, PCODEs are unique codes used to identify and locate specific administrative units such as provinces, districts, and villages. Used in conjunction with CODs, they help to standardize a more granular level of detail, facilitating data analysis and mapping at the local level.
+
+CODs and PCODEs are integral to several key applications in disaster preparedness and humanitarian response. They enable mapping and spatial analysis, data collection and reporting, and resource allocation and targeting. By using these tools, organizations and governments can better understand the needs and vulnerabilities of affected populations, and make informed decisions on how to allocate resources and target interventions.
+
+Overall, CODs and PCODEs are essential for effective disaster preparedness and response, enabling stakeholders to gather and analyze critical information, respond quickly and efficiently, and ultimately save lives and mitigate the impact of disasters on communities.
+
+# Accessing CODs using R
+
+R program has rich feature library to access and process spatial data. ESRI feature services are a useful tool for accessing and working with geographic data in R. Feature services are a powerful tool for working with geographic data and can help access, analyze, and visualize data from a wide range of sources, including web maps and geodatabases. This can be particularly useful when we need to incorporate data from multiple sources into a single analysis process.
+
+This article is written to demonstrates the methods to access Common Operational Datasets (COD) Administrative Boundary data hosted in [ITOS Map Services](https://gistmaps.itos.uga.edu/arcgis/rest/services).
+
+## Main packages used:
+```{r GlobalOptions}
+options(knitr.duplicate.label = 'allow')
+```
+
+```{r setup, include = FALSE, cache = FALSE}  
+knitr::opts_chunk$set(error = TRUE)  
+```
+
+```{r setup, warning=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(sf) #to access the ESRI online services
+library(httr)
+```
+
+First of all, let's start with the ESRI Map Service features.
+
+Package 'httr' has very useful tools for working with HTTP requests such as GET, POST, PATCH etc. In addition, we can pass parameters such as authentication information etc.
+
+## ESRI Feature Services
+GIS data of administrative boundaries are part of the core [Common Operational Datasets (CODS)](https://humanitarian.atlassian.net/wiki/spaces/imtoolbox/pages/42045911/Common+Operational+Datasets+CODs). It provides both Map Services and Feature Services.
+
+Example of [Sri Lanka Administrative Boundary](https://gistmaps.itos.uga.edu/arcgis/rest/services/COD_External/LKA_pcode/FeatureServer)
+
+```{r setup, warning=FALSE}
+#Map service path
+wfs_url<-parse_url("https://gistmaps.itos.uga.edu/arcgis/rest/services")
+#prepare a full URL for the country of interest
+#.../1/... refers to admin level 1
+wfs_url$path<-paste(wfs_url$path,"COD_External/LKA_pcode/FeatureServer/1/query", sep="/")
+```
+
+To explore and prepare a query parameter to fetch the data, following [Query builder](https://gistmaps.itos.uga.edu/arcgis/rest/services/COD_External/LKA_pcode/FeatureServer/query) helps.
+
+```{r}
+wfs_url$query<-list(#where="admin1Name_en='Central'",
+                    where="1='1'",
+                    geometryType='esriGeometryEnvelope',
+                    #geometry='',
+                    returnGeometry="true",
+                    outFields='*',
+                    f = "geojson")
+wfs_request <- build_url(wfs_url)
+wfs_request
+```
+To download the spatial data, use st_read function of 'sf' package.
+
+```{r setup, warning=FALSE}
+#st_read function of 'sf' package
+wfs_layer_admin1<-st_read(wfs_request)
+```
+
+When an API call responds to a request, the data is returned as a list. The list has many different items and the most of the items are administrative information from the API. It is suggested to explore the list elements to understand the information so that required piece of data can be extracted correctly.
+
+In below example, the number of fields is limited to 'admin1Name_en,admin1Pcode'.
+
+```{r setup, warning=FALSE}
+wfs_url$query<-list(#where="admin1Name_en='Central'",
+                    where="1='1'",
+                    geometryType='esriGeometryEnvelope',
+                    #geometry='',
+                    returnGeometry="true",
+                    outFields='admin1Name_en,admin1Pcode',
+                    f = "geojson")
+wfs_request <- build_url(wfs_url)
+wfs_request
+#st_read function of 'sf' package
+wfs_layer_admin1<-st_read(wfs_request)
+```
+# Spatial Operation
+Spatial operation could be useful to enrich the data table. Below example is to add Lat/Long of centroid of the administrative boundary.
+
+```{r setup, warning=FALSE}
+sf_admin1 <- wfs_layer_admin1
+map_admin1<-sf_admin1 %>% 
+  mutate(lat=map_dbl(geometry,~st_centroid(.x)[[2]]),long=map_dbl(geometry,~st_centroid(.x)[[1]])
+  ) 
+```
+
+# Visualize COD
+Create map of the administrative boundary using 'ggplot2'.
+
+## Setting up map theme
+```{r}
+#PLOT METHOD---using ggplot 2 to sf features
+#---Map theme-------
+theme_map <- theme_classic() +
+  theme(
+    text = element_text(color = "#22211d"),
+    axis.line = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    plot.background = element_blank(),
+    #panel.grid.minor = element_line(color = "#f5f5f2", size = 0.2),
+    #panel.grid.major = element_line(color = "#f5f5f2", size = 0.1),
+    panel.background = element_blank(), 
+    panel.border = element_blank(),
+    #panel.grid = element_line(color="white"),
+    panel.grid.major = element_line(color="white"),
+    #panel.grid.minor = element_blank(),
+    #legend.position = c(0, 1),
+    #legend.justification = c(0, 1),
+    legend.background = element_rect(fill = "white")
+    #legend.direction = "horizontal"
+  )
+```
+
+## Plotting the map
+```{r}
+#----------COD Boundary--------------#
+legend_title <- "COD Boundary"
+p<-ggplot()+
+  #geom_sf(data=map_admin2, aes(fill=map_class_interval),color='grey95', size=0.05)+
+  geom_sf(data=map_admin1,fill=NA, color='grey75', size=0.8)+
+  #geom_point(data=map_admin1_centroid,aes(x=as.numeric(long),y=as.numeric(lat)))+
+  geom_text(data=map_admin1,aes(x=as.numeric(long),y=as.numeric(lat),label=str_wrap(admin1Name_en,width=12)),hjust =0.5,vjust=0, nudge_x = 0.0,check_overlap = FALSE, size=3)+
+  ggtitle(legend_title)+
+  coord_sf() +
+  theme_map 
+p
+```
+
+# Multiple Layer overlay
+Get the administrative level 2 boundary from the rest services.
+```{r setup, warning=FALSE}
+#Map service path
+wfs_url<-parse_url("https://gistmaps.itos.uga.edu/arcgis/rest/services")
+#prepare a full URL for the country of interest
+#.../2/... refers to admini level 2
+wfs_url$path<-paste(wfs_url$path,"COD_External/LKA_pcode/FeatureServer/2/query", sep="/")
+wfs_url$query<-list(#where="admin1Name_en='Central'",
+                    where="1='1'",
+                    geometryType='esriGeometryEnvelope',
+                    #geometry='',
+                    returnGeometry="true",
+                    outFields='admin2Name_en,admin2Pcode',
+                    f = "geojson")
+wfs_request <- build_url(wfs_url)
+wfs_request
+#st_read function of 'sf' package
+wfs_layer_admin2<-st_read(wfs_request)
+map_admin2<-wfs_layer_admin2
+```
+
+## Putting both layers together
+```{r}
+#-------------------------------#
+library(ggrepel)
+legend_title <- "COD Boundary"
+p<-ggplot()+
+  geom_sf(data=map_admin2, fill='grey90',color='grey95', size=0.2)+
+  geom_sf(data=map_admin1,fill=NA, color='grey75', size=0.8)+
+  #geom_point(data=map_admin1_centroid,aes(x=as.numeric(long),y=as.numeric(lat)))+
+  geom_text_repel(data=map_admin1,aes(x=as.numeric(long),y=as.numeric(lat),label=str_wrap(admin1Name_en,width=12)),
+                  hjust =0.5,vjust=0.0,nudge_x = 0.0,size=3,
+                  min.segment.length =10)+
+  ggtitle(legend_title)+
+  coord_sf() +
+  theme_map 
+p
+```
+

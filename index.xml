@@ -1,43 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Humanitarian Data Science</title>
-    <link>/</link>
+    <link>https://ppsapkota.github.io/</link>
     <description>Recent content on Humanitarian Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 08 Dec 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 02 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ppsapkota.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Accessing Common Operational Data (COD) from ESRI REST API using R: examples for Administrative Boundary PCODE</title>
+      <link>https://ppsapkota.github.io/post/2023_01_01_esri_rest_api/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ppsapkota.github.io/post/2023_01_01_esri_rest_api/</guid>
+      <description>Common Operational Data Common Operational Datasets (CODs) are authoritative reference datasets needed to support operations and decision-making for all actors involved in a humanitarian response. CODs are &amp;lsquo;best available&amp;rsquo; datasets that help to ensure consistency and simplify the discovery and exchange of key data.
+To effectively respond to disasters and provide humanitarian aid, it is crucial to have accurate and up-to-date information. Standardized datasets like CODs play a critical role in providing consistent and reliable information about the demographics, geography, and infrastructure of a particular area.</description>
+    </item>
     
     <item>
       <title>Accessing data from REST API using R: examples for KoBoToolbox and Country Based Pooled Fund (CBPF) data</title>
-      <link>/post/2018_12_08_kobo_restapi/</link>
+      <link>https://ppsapkota.github.io/post/2018_12_08_kobo_restapi/</link>
       <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018_12_08_kobo_restapi/</guid>
+      <guid>https://ppsapkota.github.io/post/2018_12_08_kobo_restapi/</guid>
       <description>R program has become a language of choice for data science work. It has rich feature library that can be readily used for variety of data management tasks. This article focuses on accessing data from the KoBoToolbox.
-KoBoToolboxKoBoToolbox provides a suite of tools for field data collection in the challenging environments. It is free and open source and works both on and offline.
+KoBoToolbox KoBoToolbox provides a suite of tools for field data collection in the challenging environments. It is free and open source and works both on and offline.
 KoBoToolbox has a number of advanced features which are very useful for advanced use case scenario.</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>/contact/</link>
+      <link>https://ppsapkota.github.io/contact/</link>
       <pubDate>Sun, 09 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/contact/</guid>
-      <description> First Name  Last Name  E-Mail  City  State AL CA IL      Send   </description>
+      <guid>https://ppsapkota.github.io/contact/</guid>
+      <description> &amp;lt;div class=&amp;quot;pure-u-1 pure-u-md-1-3&amp;quot;&amp;gt;&amp;lt;label for=&amp;quot;last-name&amp;quot;&amp;gt;Last Name&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;quot;last-name&amp;quot; class=&amp;quot;pure-u-23-24&amp;quot; type=&amp;quot;text&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;pure-u-1 pure-u-md-1-3&amp;quot;&amp;gt;&amp;lt;label for=&amp;quot;email&amp;quot;&amp;gt;E-Mail&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;quot;email&amp;quot; class=&amp;quot;pure-u-23-24&amp;quot; type=&amp;quot;email&amp;quot; required&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;pure-u-1 pure-u-md-1-3&amp;quot;&amp;gt;&amp;lt;label for=&amp;quot;city&amp;quot;&amp;gt;City&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;quot;city&amp;quot; class=&amp;quot;pure-u-23-24&amp;quot; type=&amp;quot;text&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;pure-u-1 pure-u-md-1-3&amp;quot;&amp;gt;&amp;lt;label for=&amp;quot;state&amp;quot;&amp;gt;State&amp;lt;/label&amp;gt;&amp;lt;select id=&amp;quot;state&amp;quot; class=&amp;quot;pure-input-1-2&amp;quot;&amp;gt;&amp;lt;option&amp;gt;AL&amp;lt;/option&amp;gt;&amp;lt;option&amp;gt;CA&amp;lt;/option&amp;gt;&amp;lt;option&amp;gt;IL&amp;lt;/option&amp;gt;&amp;lt;/select&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;fieldset class=&amp;quot;pure-group&amp;quot;&amp;gt;&amp;lt;input type=&amp;quot;text&amp;quot; class=&amp;quot;pure-input-1-2&amp;quot; placeholder=&amp;quot;A title&amp;quot;&amp;gt;&amp;lt;textarea class=&amp;quot;pure-input-1-2&amp;quot; placeholder=&amp;quot;Your message&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt;&amp;lt;/fieldset&amp;gt;&amp;lt;button type=&amp;quot;submit&amp;quot; class=&amp;quot;pure-button pure-button-primary&amp;quot;&amp;gt;Send&amp;lt;/button&amp;gt;</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>https://ppsapkota.github.io/about/</link>
       <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://ppsapkota.github.io/about/</guid>
       <description>Welcome to my blog posts. This webpage is created to showcase the use of advanced techniques for humanitarian data science.
 Thanks for reading!</description>
     </item>

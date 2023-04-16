@@ -12,7 +12,8 @@ tags:
 weight: 10
 output:
   html_document:
-    df_print: paged
+    keep_md: yes
+  pdf_document: default
 ---
 
 R program has become a language of choice for data science work. It has rich feature library that can be readily used for variety of data management tasks. This article focuses on accessing data from the [KoBoToolbox](https://kobo.humanitarianresponse.info/).

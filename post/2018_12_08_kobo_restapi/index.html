@@ -5,9 +5,11 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.52" />
+  <meta name="generator" content="Hugo 0.111.3">
 
   <title>Accessing data from REST API using R: examples for KoBoToolbox and Country Based Pooled Fund (CBPF) data &middot; Humanitarian Data Science</title>
+
+    
 
   
   
@@ -21,34 +23,35 @@
   <!--<![endif]-->
 
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="https://ppsapkota.github.io/css/side-menu-old-ie.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="/css/side-menu.css">
+  <link rel="stylesheet" href="https://ppsapkota.github.io/css/side-menu.css">
   <!--<![endif]-->
 
-  <link rel="stylesheet" href="/css/blackburn.css">
+  <link rel="stylesheet" href="https://ppsapkota.github.io/css/blackburn.css">
 
   
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
   
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css">
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
   
 
   
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/androidstudio.min.css">
+  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
   
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://ppsapkota.github.io/img/favicon.ico" type="image/x-icon" />
 
   
   
@@ -67,7 +70,7 @@
 <div id="menu">
 
   
-  <a class="pure-menu-heading brand" href="/">Punya</a>
+  <a class="pure-menu-heading brand" href="https://ppsapkota.github.io/">Punya</a>
 
 
   <div class="pure-menu">
@@ -75,19 +78,19 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+          <a class="pure-menu-link" href="https://ppsapkota.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+          <a class="pure-menu-link" href="https://ppsapkota.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+          <a class="pure-menu-link" href="https://ppsapkota.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
       
         </li>
       
@@ -132,10 +135,8 @@
     
 
     
-
-    
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://linkedin.com/in/punya-prasad-sapkota" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+      <a class="pure-menu-link" href="https://linkedin.com/in/punya-prasad-sapkota" rel="me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
     </li>
     
 
@@ -151,7 +152,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://github.com/ppsapkota" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+      <a class="pure-menu-link" href="https://github.com/ppsapkota" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
     </li>
     
 
@@ -222,11 +223,11 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="/tags/r">R</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://ppsapkota.github.io/tags/r">R</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="/tags/kobotoolbox">KoBoToolbox</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://ppsapkota.github.io/tags/kobotoolbox">KoBoToolbox</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="/tags/webdata">WebData</a>
+      <a class="post-taxonomy-tag" href="https://ppsapkota.github.io/tags/webdata">WebData</a>
     
   </div>
   
@@ -234,79 +235,82 @@
 
 </div>
 
-  
-
-
-<p>R program has become a language of choice for data science work. It has rich feature library that can be readily used for variety of data management tasks. This article focuses on accessing data from the <a href="https://kobo.humanitarianresponse.info/">KoBoToolbox</a>.</p>
-<div id="kobotoolbox" class="section level1">
-<h1>KoBoToolbox</h1>
+  <p>R program has become a language of choice for data science work. It has rich feature library that can be readily used for variety of data management tasks. This article focuses on accessing data from the <a href="https://kobo.humanitarianresponse.info/">KoBoToolbox</a>.</p>
+<h1 id="kobotoolbox">KoBoToolbox</h1>
 <p><a href="http://support.kobotoolbox.org/getting-started/welcome/welcome-to-kobotoolbox">KoBoToolbox</a> provides a suite of tools for field data collection in the challenging environments. It is free and open source and works both on and offline.</p>
-<p>KoBoToolbox has a number of advanced features which are very useful for advanced use case scenario. KoBoToolbox has made data accessible through the implementation of <a href="https://kc.humanitarianresponse.info/api/v1/data">REST API</a>. This provides enormous possibility of automating the workflow of survey data collection, processing and analysis. Even if accessibility of the data has not been set as public, data can be fetched by passing username and password of the KoBo account. KoBoToolbox has two APIs access points namely kpi and kc. The toolbox started supporting form deployments and access to data using ‘kc’ API. In the latest version, ‘kpi’ has been implemented as the primary <a href="http://support.kobotoolbox.org/managing-your-project-s-data/rest-services">API</a>.</p>
+<p>KoBoToolbox has a number of advanced features which are very useful for advanced use case scenario. KoBoToolbox has made data accessible through the implementation of <a href="https://kc.humanitarianresponse.info/api/v1/data">REST API</a>. This provides enormous possibility of automating the workflow of survey data collection, processing and analysis. Even if accessibility of the data has not been set as public, data can be fetched by passing username and password of the KoBo account. KoBoToolbox has two APIs access points namely kpi and kc. The toolbox started supporting form deployments and access to data using &lsquo;kc&rsquo; API. In the latest version, &lsquo;kpi&rsquo; has been implemented as the primary <a href="http://support.kobotoolbox.org/managing-your-project-s-data/rest-services">API</a>.</p>
 <p>This article is written to demostrates the methods to access data from KoBo using R program.</p>
-<div id="main-packages-used" class="section level2">
-<h2>Main packages used:</h2>
-<pre class="r"><code>library(httr)
-library(jsonlite)
-#for reading and writing data
-library(readr) # to read CSV data
-library(openxlsx) # to write to excel file</code></pre>
-<p>Package ‘httr’ has very useful tools for working with HTTP requests such as GET, POST, PATCH etc. In addition, we can pass parameters such as authentication information etc. The ‘jsonlite’ package offers flexible, robust, high performance tools for working with JSON data.</p>
-<p>First of all, let’s set the KoBo server URL.</p>
-</div>
-<div id="kobotoolbox-example" class="section level2">
-<h2>KoBoToolbox Example</h2>
-<pre class="r"><code>####----set global variables ----------
-kobo_server_url&lt;-&quot;https://kobo.humanitarianresponse.info/&quot;
-kc_server_url&lt;-&quot;https://kc.humanitarianresponse.info/&quot;</code></pre>
-<p>To download data, unique identifier of the form is required to construct the url to fetch data. In the older API version 1, forms/projects deployed to collect data has unique six digit identifier (for example, 145448). With the ID of the form, KoBo data download URL can be constructed as:</p>
-<pre class="r"><code>form_id&lt;-253043 #change the id to your form&#39;s id
-url&lt;-paste0(kc_server_url,&quot;api/v1/data/&quot;,form_id,&quot;.csv&quot;)
-#returns the CSV content of the form</code></pre>
-<p>Above url points to the CSV content of the form data that can be easily transformed to R dataframe for further processing.</p>
+<h2 id="main-packages-used">Main packages used:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(httr)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(jsonlite)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#for reading and writing data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(readr) <span style="color:#75715e"># to read CSV data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(openxlsx) <span style="color:#75715e"># to write to excel file</span>
+</span></span></code></pre></div><p>Package &lsquo;httr&rsquo; has very useful tools for working with HTTP requests such as GET, POST, PATCH etc. In addition, we can pass parameters such as authentication information etc. The &lsquo;jsonlite&rsquo; package offers flexible, robust, high performance tools for working with JSON data.</p>
+<p>First of all, let&rsquo;s set the KoBo server URL.</p>
+<h2 id="kobotoolbox-example">KoBoToolbox Example</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">####----set global variables ----------</span>
+</span></span><span style="display:flex;"><span>kobo_server_url<span style="color:#f92672">&lt;-</span><span style="color:#e6db74">&#34;https://kobo.humanitarianresponse.info/&#34;</span>
+</span></span><span style="display:flex;"><span>kc_server_url<span style="color:#f92672">&lt;-</span><span style="color:#e6db74">&#34;https://kc.humanitarianresponse.info/&#34;</span>
+</span></span></code></pre></div><p>To download data, unique identifier of the form is required to construct the url to fetch data. In the older API version 1, forms/projects deployed to collect data has unique six digit identifier (for example, 145448). With the ID of the form, KoBo data download URL can be constructed as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>form_id<span style="color:#f92672">&lt;-</span><span style="color:#ae81ff">253043</span> <span style="color:#75715e">#change the id to your form&#39;s id</span>
+</span></span><span style="display:flex;"><span>url<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">paste0</span>(kc_server_url,<span style="color:#e6db74">&#34;api/v1/data/&#34;</span>,form_id,<span style="color:#e6db74">&#34;.csv&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#returns the CSV content of the form</span>
+</span></span></code></pre></div><p>Above url points to the CSV content of the form data that can be easily transformed to R dataframe for further processing.</p>
 <p>To download the data, GET request is made. If data is not available publicly, username and password of the KoBo account need to be passed as authentication parameter.</p>
-<pre class="r"><code>#supply url for the data
-rawdata&lt;-GET(url)
-#if form data is not accessible publicly, then username and password needs to be provided. 
-#Use the following code to download the data.
-#u&lt;-&quot;username&quot;
-#pw&lt;-&quot;password&quot;
-#rawdata&lt;-GET(url,authenticate(u,pw),progress())</code></pre>
-<p>The server responds with a status code which needs to be checked for its successful return of the requested information before further processing of the information.</p>
-<pre class="r"><code>print(paste0(&quot;Status Code: &quot;,rawdata$status_code))</code></pre>
-<pre><code>## [1] &quot;Status Code: 200&quot;</code></pre>
-<p>When an API call responds to a request, the data is returned as a list. The list has many different items and the most of the items are administrative information from the API. It is suggested to explore the list elements to understand the information so that required piece of data can be extracted correctly.</p>
-<pre class="r"><code># to check the elements returned:
-str(rawdata)</code></pre>
-<pre><code>## List of 10
-##  $ url        : chr &quot;https://kc.humanitarianresponse.info/api/v1/data/253043.csv&quot;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">#supply url for the data</span>
+</span></span><span style="display:flex;"><span>rawdata<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">GET</span>(url)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#if form data is not accessible publicly, then username and password needs to be provided. </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Use the following code to download the data.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#u&lt;-&#34;username&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#pw&lt;-&#34;password&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#rawdata&lt;-GET(url,authenticate(u,pw),progress())</span>
+</span></span></code></pre></div><p>The server responds with a status code which needs to be checked for its successful return of the requested information before further processing of the information.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">paste0</span>(<span style="color:#e6db74">&#34;Status Code: &#34;</span>,rawdata<span style="color:#f92672">$</span>status_code))
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] &#34;Status Code: 200&#34;
+</code></pre><p>When an API call responds to a request, the data is returned as a list. The list has many different items and the most of the items are administrative information from the API. It is suggested to explore the list elements to understand the information so that required piece of data can be extracted correctly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># to check the elements returned:</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">str</span>(rawdata)
+</span></span></code></pre></div><pre tabindex="0"><code>## List of 10
+##  $ url        : chr &#34;https://kc.humanitarianresponse.info/api/v1/data/253043.csv&#34;
 ##  $ status_code: int 200
-##  $ headers    :List of 9
-##   ..$ date               : chr &quot;Wed, 26 Dec 2018 08:16:46 GMT&quot;
-##   ..$ content-type       : chr &quot;application/csv&quot;
-##   ..$ content-length     : chr &quot;68467&quot;
-##   ..$ connection         : chr &quot;keep-alive&quot;
-##   ..$ server             : chr &quot;nginx/1.10.3 (Ubuntu)&quot;
-##   ..$ content-disposition: chr &quot;attachment; filename=aUBanmH6zXuLaDfUyoSbZB_2018_12_26.csv&quot;
-##   ..$ content-language   : chr &quot;en&quot;
-##   ..$ vary               : chr &quot;Accept, Accept-Language, Cookie&quot;
-##   ..$ allow              : chr &quot;GET, POST, PATCH, HEAD, OPTIONS&quot;
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;insensitive&quot; &quot;list&quot;
+##  $ headers    :List of 14
+##   ..$ date                     : chr &#34;Sun, 16 Apr 2023 13:47:10 GMT&#34;
+##   ..$ content-type             : chr &#34;application/csv&#34;
+##   ..$ content-length           : chr &#34;68492&#34;
+##   ..$ connection               : chr &#34;keep-alive&#34;
+##   ..$ server                   : chr &#34;nginx/1.21.6&#34;
+##   ..$ content-disposition      : chr &#34;attachment; filename=aUBanmH6zXuLaDfUyoSbZB_2023_04_16.csv&#34;
+##   ..$ vary                     : chr &#34;Accept, Origin, Accept-Language, Cookie&#34;
+##   ..$ allow                    : chr &#34;GET, POST, PATCH, DELETE, HEAD, OPTIONS&#34;
+##   ..$ content-security-policy  : chr &#34;style-src &#39;self&#39; &#39;unsafe-inline&#39;; default-src &#39;self&#39; *.google-analytics.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#34;| __truncated__
+##   ..$ content-language         : chr &#34;en&#34;
+##   ..$ strict-transport-security: chr &#34;max-age=300&#34;
+##   ..$ x-content-type-options   : chr &#34;nosniff&#34;
+##   ..$ referrer-policy          : chr &#34;same-origin&#34;
+##   ..$ accept-ranges            : chr &#34;bytes&#34;
+##   ..- attr(*, &#34;class&#34;)= chr [1:2] &#34;insensitive&#34; &#34;list&#34;
 ##  $ all_headers:List of 1
 ##   ..$ :List of 3
 ##   .. ..$ status : int 200
-##   .. ..$ version: chr &quot;HTTP/1.1&quot;
-##   .. ..$ headers:List of 9
-##   .. .. ..$ date               : chr &quot;Wed, 26 Dec 2018 08:16:46 GMT&quot;
-##   .. .. ..$ content-type       : chr &quot;application/csv&quot;
-##   .. .. ..$ content-length     : chr &quot;68467&quot;
-##   .. .. ..$ connection         : chr &quot;keep-alive&quot;
-##   .. .. ..$ server             : chr &quot;nginx/1.10.3 (Ubuntu)&quot;
-##   .. .. ..$ content-disposition: chr &quot;attachment; filename=aUBanmH6zXuLaDfUyoSbZB_2018_12_26.csv&quot;
-##   .. .. ..$ content-language   : chr &quot;en&quot;
-##   .. .. ..$ vary               : chr &quot;Accept, Accept-Language, Cookie&quot;
-##   .. .. ..$ allow              : chr &quot;GET, POST, PATCH, HEAD, OPTIONS&quot;
-##   .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;insensitive&quot; &quot;list&quot;
-##  $ cookies    :&#39;data.frame&#39;: 0 obs. of  7 variables:
+##   .. ..$ version: chr &#34;HTTP/1.1&#34;
+##   .. ..$ headers:List of 14
+##   .. .. ..$ date                     : chr &#34;Sun, 16 Apr 2023 13:47:10 GMT&#34;
+##   .. .. ..$ content-type             : chr &#34;application/csv&#34;
+##   .. .. ..$ content-length           : chr &#34;68492&#34;
+##   .. .. ..$ connection               : chr &#34;keep-alive&#34;
+##   .. .. ..$ server                   : chr &#34;nginx/1.21.6&#34;
+##   .. .. ..$ content-disposition      : chr &#34;attachment; filename=aUBanmH6zXuLaDfUyoSbZB_2023_04_16.csv&#34;
+##   .. .. ..$ vary                     : chr &#34;Accept, Origin, Accept-Language, Cookie&#34;
+##   .. .. ..$ allow                    : chr &#34;GET, POST, PATCH, DELETE, HEAD, OPTIONS&#34;
+##   .. .. ..$ content-security-policy  : chr &#34;style-src &#39;self&#39; &#39;unsafe-inline&#39;; default-src &#39;self&#39; *.google-analytics.com; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#34;| __truncated__
+##   .. .. ..$ content-language         : chr &#34;en&#34;
+##   .. .. ..$ strict-transport-security: chr &#34;max-age=300&#34;
+##   .. .. ..$ x-content-type-options   : chr &#34;nosniff&#34;
+##   .. .. ..$ referrer-policy          : chr &#34;same-origin&#34;
+##   .. .. ..$ accept-ranges            : chr &#34;bytes&#34;
+##   .. .. ..- attr(*, &#34;class&#34;)= chr [1:2] &#34;insensitive&#34; &#34;list&#34;
+##  $ cookies    :&#39;data.frame&#39;:	0 obs. of  7 variables:
 ##   ..$ domain    : logi(0) 
 ##   ..$ flag      : logi(0) 
 ##   ..$ path      : logi(0) 
@@ -314,111 +318,120 @@ str(rawdata)</code></pre>
 ##   ..$ expiration: &#39;POSIXct&#39; num(0) 
 ##   ..$ name      : logi(0) 
 ##   ..$ value     : logi(0) 
-##  $ content    : raw [1:68467] 51 5f 45 2f ...
-##  $ date       : POSIXct[1:1], format: &quot;2018-12-26 08:16:46&quot;
-##  $ times      : Named num [1:6] 0 0.172 0.282 0.657 1.078 ...
-##   ..- attr(*, &quot;names&quot;)= chr [1:6] &quot;redirect&quot; &quot;namelookup&quot; &quot;connect&quot; &quot;pretransfer&quot; ...
+##  $ content    : raw [1:68492] 51 5f 45 2f ...
+##  $ date       : POSIXct[1:1], format: &#34;2023-04-16 13:47:10&#34;
+##  $ times      : Named num [1:6] 0 0.0113 0.2955 0.81 2.4796 ...
+##   ..- attr(*, &#34;names&#34;)= chr [1:6] &#34;redirect&#34; &#34;namelookup&#34; &#34;connect&#34; &#34;pretransfer&#34; ...
 ##  $ request    :List of 7
-##   ..$ method    : chr &quot;GET&quot;
-##   ..$ url       : chr &quot;https://kc.humanitarianresponse.info/api/v1/data/253043.csv&quot;
-##   ..$ headers   : Named chr &quot;application/json, text/xml, application/xml, */*&quot;
-##   .. ..- attr(*, &quot;names&quot;)= chr &quot;Accept&quot;
+##   ..$ method    : chr &#34;GET&#34;
+##   ..$ url       : chr &#34;https://kc.humanitarianresponse.info/api/v1/data/253043.csv&#34;
+##   ..$ headers   : Named chr &#34;application/json, text/xml, application/xml, */*&#34;
+##   .. ..- attr(*, &#34;names&#34;)= chr &#34;Accept&#34;
 ##   ..$ fields    : NULL
-##   ..$ options   :List of 3
-##   .. ..$ useragent: chr &quot;libcurl/7.59.0 r-curl/3.2 httr/1.3.1&quot;
-##   .. ..$ cainfo   : chr &quot;C:/PROGRA~1/R/R-35~1.1/etc/curl-ca-bundle.crt&quot;
+##   ..$ options   :List of 2
+##   .. ..$ useragent: chr &#34;libcurl/7.84.0 r-curl/5.0.0 httr/1.4.5&#34;
 ##   .. ..$ httpget  : logi TRUE
 ##   ..$ auth_token: NULL
 ##   ..$ output    : list()
-##   .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;write_memory&quot; &quot;write_function&quot;
-##   ..- attr(*, &quot;class&quot;)= chr &quot;request&quot;
+##   .. ..- attr(*, &#34;class&#34;)= chr [1:2] &#34;write_memory&#34; &#34;write_function&#34;
+##   ..- attr(*, &#34;class&#34;)= chr &#34;request&#34;
 ##  $ handle     :Class &#39;curl_handle&#39; &lt;externalptr&gt; 
-##  - attr(*, &quot;class&quot;)= chr &quot;response&quot;</code></pre>
-<p>The main raw data of interest is returned with ‘content’ tag. In addition, when content has non-English characters, for example Arabic texts, we can encode the output as ‘UTF-8’ to ensure that the information is retained in its original form and encoding.</p>
-<pre class="r"><code>d_content &lt;- content(rawdata,&quot;raw&quot;,encoding=&quot;UTF-8&quot;)</code></pre>
-<p>The raw content can be parsed to CSV format by using read_csv() function from ‘readr’ package.</p>
-<pre class="r"><code>d_content_csv &lt;- read_csv(d_content)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   .default = col_character(),
-##   `Q_E/Q_E1` = col_integer(),
-##   `Q_E/Q_E2` = col_date(format = &quot;&quot;),
-##   `Q_E/Q_E3` = col_integer(),
-##   `Q_E/Q_E5` = col_integer(),
-##   `Q_E/Q_E6` = col_integer(),
-##   `I_S_Q/Q_K1/Q_K1_B` = col_integer(),
-##   `I_S_Q/Q_K1/Q_K1_E` = col_date(format = &quot;&quot;),
-##   `ccm_group/cfp_ccm_gr/cpf_ccm_ag` = col_integer(),
-##   `ccm_group/cfp_ccm_gr/cpf_ccm_da` = col_date(format = &quot;&quot;),
-##   `educationg/edu_cfp_me/edu_interinf/cpf_edu_ag` = col_integer(),
-##   `educationg/edu_cfp_me/q2location/q2_1what_i` = col_date(format = &quot;&quot;),
-##   `educationg/q1demograp/q3_2_a_wha/q3_2_a_1mi` = col_integer(),
-##   `educationg/q1demograp/q3_2_a_wha/q3_2_a_2ma` = col_integer(),
-##   `educationg/q1demograp/q3_2_a_wha/q3_2_a_3be` = col_integer(),
-##   `educationg/q1demograp/q3_4_a_wha/q3_4_a__1m` = col_integer(),
-##   `educationg/q1demograp/q3_4_a_wha/q3_4_a__2m` = col_integer(),
-##   `educationg/q1demograp/q3_4_a_wha/q3_4_a__3b` = col_integer(),
-##   `educationg/q1demograp/q3_6a/q3_6a_1min` = col_integer(),
-##   `educationg/q1demograp/q3_6a/q3_6a_2max` = col_integer(),
-##   `educationg/q1demograp/q3_6a/q3_6a_3bes` = col_integer()
-##   # ... with 36 more columns
-## )</code></pre>
-<pre><code>## See spec(...) for full column specifications.</code></pre>
-<p>Let’s change it to the R data frame object.</p>
-<pre class="r"><code>d_content_csv &lt;- as.data.frame(d_content_csv)</code></pre>
-<p>To save it to the external CSV or even excel file, we can use any csv or xlsx writer functions available in R packages.</p>
-<pre class="r"><code>#using openxlsx package to save data
-openxlsx::write.xlsx(d_content_csv,&quot;kobo_data.xlsx&quot;,sheetName=&quot;data&quot;, row.names = FALSE)</code></pre>
-<p>Let’s look at another example where data is in the JSON format. When downloading data, it is a common practice to check the number of submissions. The data download request is made only if the form has one or more records.</p>
-<pre class="r"><code>#submission count
-d_count_subm&lt;-0 #initialise
-#returns number of data submisstion in each form
-stat_url&lt;- paste0(kc_server_url,&quot;api/v1/stats/submissions/&quot;,form_id,&quot;?group=anygroupname&quot;)
-rawdata_stat&lt;-GET(stat_url)
-#supply user name and password if data is not publicly available
-#rawdata_stat&lt;-GET(stat_url,authenticate(u,pw),progress())
-d_content_stat &lt;- rawToChar(rawdata_stat$content)
-d_content_stat &lt;- fromJSON(d_content_stat)
-d_count_submission &lt;- d_content_stat$count
-  #check whether there is record or not
-if (is.null(d_count_submission)){
-    d_count_submission &lt;-0
-}</code></pre>
-</div>
-</div>
-<div id="country-based-pooled-fund-api" class="section level1">
-<h1>Country Based Pooled Fund API</h1>
+##  - attr(*, &#34;class&#34;)= chr &#34;response&#34;
+</code></pre><p>The main raw data of interest is returned with &lsquo;content&rsquo; tag. In addition, when content has non-English characters, for example Arabic texts, we can encode the output as &lsquo;UTF-8&rsquo; to ensure that the information is retained in its original form and encoding.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>d_content <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">content</span>(rawdata,<span style="color:#e6db74">&#34;raw&#34;</span>,encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>)
+</span></span></code></pre></div><p>The raw content can be parsed to CSV format by using read_csv() function from &lsquo;readr&rsquo; package.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>d_content_csv <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(d_content)
+</span></span></code></pre></div><pre tabindex="0"><code>## Rows: 2 Columns: 1317
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────
+## Delimiter: &#34;,&#34;
+## chr  (825): Q_E/Q_E4, Q_M/admin1, Q_M/admin2, Q_M/admin3, Q_M/admin4, Q_M/neighborho, I_S_Q/Q_K1/Q_K...
+## dbl   (45): Q_E/Q_E1, Q_E/Q_E3, Q_E/Q_E5, Q_E/Q_E6, I_S_Q/Q_K1/Q_K1_B, ccm_group/cfp_ccm_gr/cpf_ccm_...
+## lgl  (436): gchoose_th/inter_sect, gchoose_th/cccm, gchoose_th/education, gchoose_th/nfi_shelte, gch...
+## dttm   (1): _submission_time
+## date  (10): Q_E/Q_E2, I_S_Q/Q_K1/Q_K1_E, ccm_group/cfp_ccm_gr/cpf_ccm_da, educationg/edu_cfp_me/q2lo...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</code></pre><p>Let&rsquo;s change it to the R data frame object.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>d_content_csv <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.data.frame</span>(d_content_csv)
+</span></span></code></pre></div><p>To save it to the external CSV or even excel file, we can use any csv or xlsx writer functions available in R packages.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">#using openxlsx package to save data</span>
+</span></span><span style="display:flex;"><span>openxlsx<span style="color:#f92672">::</span><span style="color:#a6e22e">write.xlsx</span>(d_content_csv,<span style="color:#e6db74">&#34;kobo_data.xlsx&#34;</span>,sheetName<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;data&#34;</span>, row.names <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning: Please use &#39;rowNames&#39; instead of &#39;row.names&#39;
+</code></pre><p>Let&rsquo;s look at another example where data is in the JSON format. When downloading data, it is a common practice to check the number of submissions. The data download request is made only if the form has one or more records.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">#submission count</span>
+</span></span><span style="display:flex;"><span>d_count_subm<span style="color:#f92672">&lt;-</span><span style="color:#ae81ff">0</span> <span style="color:#75715e">#initialise</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#returns number of data submisstion in each form</span>
+</span></span><span style="display:flex;"><span>stat_url<span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste0</span>(kc_server_url,<span style="color:#e6db74">&#34;api/v1/stats/submissions/&#34;</span>,form_id,<span style="color:#e6db74">&#34;?group=anygroupname&#34;</span>)
+</span></span><span style="display:flex;"><span>rawdata_stat<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">GET</span>(stat_url)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#supply user name and password if data is not publicly available</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#rawdata_stat&lt;-GET(stat_url,authenticate(u,pw),progress())</span>
+</span></span><span style="display:flex;"><span>d_content_stat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rawToChar</span>(rawdata_stat<span style="color:#f92672">$</span>content)
+</span></span><span style="display:flex;"><span>d_content_stat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">fromJSON</span>(d_content_stat)
+</span></span><span style="display:flex;"><span>d_count_submission <span style="color:#f92672">&lt;-</span> d_content_stat<span style="color:#f92672">$</span>count
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#check whether there is record or not</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">if </span>(<span style="color:#a6e22e">is.null</span>(d_count_submission)){
+</span></span><span style="display:flex;"><span>    d_count_submission <span style="color:#f92672">&lt;-</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="country-based-pooled-fund-api">Country Based Pooled Fund API</h1>
 <p>Another example to download Country Based Pooled Fund <a href="https://cbpfapi.unocha.org/vo1">CBPF data</a> using API. The CBPF has made several dataset available to access using the REST API.</p>
-<pre class="r"><code>url&lt;-&quot;https://cbpfapi.unocha.org/vo1/odata/Location?poolfundAbbrv=TUR70&amp;$format=csv&quot;
-#returns the CSV content of the form
-rawdata&lt;-GET(url)
-d_content &lt;- content(rawdata,&quot;raw&quot;,encoding=&quot;UTF-8&quot;)
-d_content_csv &lt;- as.data.frame(read_csv(d_content))</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   PooledFundName = col_character(),
-##   PooledFundId = col_integer(),
-##   AllocationTypeId = col_integer(),
-##   AllocationYear = col_integer(),
-##   AllocationSourceName = col_character(),
-##   ChfId = col_integer(),
-##   ChfProjectCode = col_character(),
-##   Location = col_character(),
-##   ActivityName = col_character(),
-##   Men = col_integer(),
-##   Women = col_integer(),
-##   Boys = col_integer(),
-##   Girls = col_integer(),
-##   Percentage = col_integer(),
-##   LocationAdminLevelLatitude = col_double(),
-##   LocationAdminLevelLongitude = col_double(),
-##   AdminLocation1TypeName = col_character(),
-##   AdminLocation1 = col_character(),
-##   AdminLevel1PCode = col_character()
-## )</code></pre>
-<pre class="r"><code>View(d_content_csv)</code></pre>
-<p>Above examples provides the list of functions and process to fetch information using REST API. A list of functions has been developed in the <a href="https://github.com/ppsapkota/kobohr_apitoolbox">KoBo APItoolbox</a>. This GitHub repo includes additional functions and utility to work with the KoBo dataset. This also includes utilities for <a href="https://kobo.humanitarianresponse.info/assets/">new KoBo API</a>.</p>
-</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>url<span style="color:#f92672">&lt;-</span><span style="color:#e6db74">&#34;https://cbpfapi.unocha.org/vo1/odata/Location?poolfundAbbrv=TUR70&amp;$format=csv&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#returns the CSV content of the form</span>
+</span></span><span style="display:flex;"><span>rawdata<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">GET</span>(url)
+</span></span><span style="display:flex;"><span>d_content <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">content</span>(rawdata,<span style="color:#e6db74">&#34;raw&#34;</span>,encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>)
+</span></span><span style="display:flex;"><span>d_content_csv <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.data.frame</span>(<span style="color:#a6e22e">read_csv</span>(d_content))
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning: One or more parsing issues, call `problems()` on your data frame for details, e.g.:
+##   dat &lt;- vroom(...)
+##   problems(dat)
+</code></pre><pre tabindex="0"><code>## Rows: 28 Columns: 1
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────
+## Delimiter: &#34;,&#34;
+## chr (1): &lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Strict//EN&#34; &#34;http://www.w3.org/TR/xhtml1/DTD/x...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">View</span>(d_content_csv)
+</span></span></code></pre></div><p>Above examples provides the list of functions and process to fetch information using REST API. A list of functions has been developed in the <a href="https://github.com/ppsapkota/kobohr_apitoolbox">KoBo APItoolbox</a>. This GitHub repo includes additional functions and utility to work with the KoBo dataset. This also includes utilities for <a href="https://kobo.humanitarianresponse.info/assets/">new KoBo API</a>.</p>
+
+  
+  <h4><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;Share!</h4>
+<ul class="share-buttons">
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fppsapkota.github.io%2fpost%2f2018_12_08_kobo_restapi%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://twitter.com/intent/tweet?source=https%3a%2f%2fppsapkota.github.io%2fpost%2f2018_12_08_kobo_restapi%2f" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://plus.google.com/share?url=https%3a%2f%2fppsapkota.github.io%2fpost%2f2018_12_08_kobo_restapi%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.tumblr.com/share?v=3&u=https%3a%2f%2fppsapkota.github.io%2fpost%2f2018_12_08_kobo_restapi%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fppsapkota.github.io%2fpost%2f2018_12_08_kobo_restapi%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.reddit.com/submit?url=https%3a%2f%2fppsapkota.github.io%2fpost%2f2018_12_08_kobo_restapi%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
+	</li>
+</ul>
+
+
+<style>
+	ul.share-buttons{
+	  list-style: none;
+	  padding: 0;
+	}
+
+	ul.share-buttons li{
+	  display: inline;
+	}
+
+	ul.share-buttons .sr-only{
+	  position: absolute;
+	  clip: rect(1px 1px 1px 1px);
+	  clip: rect(1px, 1px, 1px, 1px);
+	  padding: 0;
+	  border: 0;
+	  height: 1px;
+	  width: 1px;
+	  overflow: hidden;
+	}
+</style>
 
 
   
@@ -434,13 +447,23 @@ d_content_csv &lt;- as.data.frame(read_csv(d_content))</code></pre>
   </div>
   <div class="pure-u-10-24">
     
+    <nav class="next">
+      <a href="https://ppsapkota.github.io/post/2023_01_01_esri_rest_api/">Accessing Common Operational Data (COD) from ESRI REST API using R: examples for Administrative Boundary PCODE</a>
+    </nav>
+    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://ppsapkota.github.io/post/2023_01_01_esri_rest_api/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
 
 
+  
+  
+  
+  
 
   
 
@@ -448,25 +471,33 @@ d_content_csv &lt;- as.data.frame(read_csv(d_content))</code></pre>
 
 </div>
 </div>
-<script src="/js/ui.js"></script>
-<script src="/js/menus.js"></script>
+<script src="https://ppsapkota.github.io/js/ui.js"></script>
+<script src="https://ppsapkota.github.io/js/menus.js"></script>
 
 
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-27027371-1"></script>
 <script>
   
   if (window.location.hostname != "localhost") {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-27027371-1', 'auto');
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-27027371-1');
   }
 </script>
 
 
 
+
+
+
+<script src="https://ppsapkota.github.io/js/math-code.js"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
 
 
 </body>
